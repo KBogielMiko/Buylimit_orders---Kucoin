@@ -11,8 +11,8 @@ ticker = 'PIAS-USDT'         # string - pair we are interested in, for example: 
 price = '0.0679'          # string - price we are interested to create Buy Limit order,for example: '16056.78'
 amount = '20'         # string - amount we are interested to buy, for example: '0.5' (half of the coin)
 
-api_key = '63a8ab5fce40be0001afdb14'                             # api key of the user
-api_secret = '4a1cea16-6771-4456-94ae-6479334406fb'                          # secret key of the user
+api_key = ''                             # api key of the user
+api_secret = ''                          # secret key of the user
 print("Please enter your password")
 api_passphrase = getpass.getpass()       # passphrase of the user
 print(api_passphrase)
