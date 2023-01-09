@@ -1,34 +1,36 @@
 import getpass
-import kucoin
 import sched
-import time
+import time as time_module
+
 from datetime import datetime, timedelta
 from kucoin.client import Trade
 
-# parameters for Buy Limit transaction
+# Parameters for Buy Limit transaction
+ticker = ''             # string - pair we are interested in, for example: 'BTC-USDT'
+price = ''              # string - price we are interested to create Buy Limit order,for example: '16056.78'
+amount = ''             # string - amount we are interested to buy, for example: '0.5' (half of the coin)
+date = ''               # string - date we are interested to create Buy Limit order, for example: '2023-01-06 20:03:00' (date has to be given in exact format)
 
-ticker = 'PIAS-USDT'         # string - pair we are interested in, for example: 'BTC-USDT'
-price = '0.0679'          # string - price we are interested to create Buy Limit order,for example: '16056.78'
-amount = '20'         # string - amount we are interested to buy, for example: '0.5' (half of the coin)
 
-api_key = ''                             # api key of the user
-api_secret = ''                          # secret key of the user
-print("Please enter your password")
-api_passphrase = getpass.getpass()       # passphrase of the user
-print(api_passphrase)
-# enter to API
+# Parameters for API initialization
+api_key = ''                                                    # api key of the user
+api_secret = ''                                                 # secret key of the user
+print("Please enter your passphrase")
+api_passphrase = getpass.getpass()                              # passphrase of the user
+
+
+# Client initialization
 client = Trade(key=api_key, secret=api_secret, passphrase=api_passphrase, is_sandbox=False, url='https://api.kucoin.com')
 
-#schedule of transaction
-date = '2023-01-07 15:39:00.000'           # string - date we are interested to create Buy Limit order, for example: '2023-01-06 20:03:00.043' (date has to be given in exact format)
 
-s = sched.scheduler(time.time, time.sleep)
+# Schedule of transaction
+def run_command(): client.create_limit_order(ticker, 'buy', amount, price)
 
-def run_command():
-    order = client.create_limit_order(ticker, 'buy', amount, price)
-    return order
+scheduler = sched.scheduler(time_module.time, time_module.sleep)
 
-run_time = time.mktime(time.strptime(date, '%Y-%m-%d %H:%M:%S.%f'))
-s.enterabs(run_time, 1, run_command(), (s,))
+t = time_module.strptime(date, '%Y-%m-%d %H:%M:%S')
+t = time_module.mktime(t)
 
-s.run()
+scheduler_e = scheduler.enterabs(t, 1, run_command, ())
+
+scheduler.run()
