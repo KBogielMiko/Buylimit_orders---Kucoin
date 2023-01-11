@@ -25,13 +25,13 @@ client = Trade(key=api_key, secret=api_secret, passphrase=api_passphrase, is_san
 
 
 # Schedule of transaction
-def run_command(): client.create_limit_order(ticker, 'buy', amount, price)
+def run_order(): client.create_limit_order(ticker, 'buy', amount, price)
 
 scheduler = sched.scheduler(time_module.time, time_module.sleep)
 
 t = time_module.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
 t = time_module.mktime(t)
 
-scheduler_e = scheduler.enterabs(t, 1, run_command, ())
+scheduler_e = scheduler.enterabs(t, 1, run_order, ())
 
 scheduler.run()
