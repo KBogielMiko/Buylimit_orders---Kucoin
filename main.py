@@ -9,7 +9,7 @@ from kucoin.client import Trade
 ticker = ''             # string - pair we are interested in, for example: 'BTC-USDT'
 price = ''              # string - price we are interested to create Buy Limit order,for example: '16056.78'
 amount = ''             # string - amount we are interested to buy, for example: '0.5' (half of the coin)
-date = ''               # string - date we are interested to create Buy Limit order, for example: '2023-01-06 20:03:00' (date has to be given in exact format)
+date = ''               # string - date we are interested to create Buy Limit order, for example: '2023-01-06 20:03:00.500' (date has to be given in exact format)
 
 
 # Parameters for API initialization
@@ -25,13 +25,13 @@ client = Trade(key=api_key, secret=api_secret, passphrase=api_passphrase, is_san
 
 
 # Schedule of transaction
-def run_order(): client.create_limit_order(ticker, 'buy', amount, price)
+def run_command(): client.create_limit_order(ticker, 'buy', amount, price)
 
 scheduler = sched.scheduler(time_module.time, time_module.sleep)
 
-t = time_module.strptime(date, '%Y-%m-%d %H:%M:%S')
+t = time_module.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
 t = time_module.mktime(t)
 
-scheduler_e = scheduler.enterabs(t, 1, run_order, ())
+scheduler_e = scheduler.enterabs(t, 1, run_command, ())
 
 scheduler.run()
