@@ -10,7 +10,7 @@ User has to enter all parameters in script before running the program except api
 
 #### KuCoin API
 
-    1. Go to https://www.kucoin.com/pl/account/sub and click on 'Create Subaccount'
+    1. Go to https://www.kucoin.com/pl/account/sub and click 'Create Subaccount'
     2. Enter subaccount name, choose all permissions, set a password and save.
     3. Click transfer, transfer funds from master to subaccount - USDT transaction account (the amount you want) and confirm.
     4. In API section, click "Display"
@@ -65,11 +65,11 @@ User has to enter all parameters in script before running the program except api
 
 ## O programie
 Prosty program zaprojektowany do tworzenia zleceń "Buy Limit" na giełdzie Kucoin o wyznaczonym przez użytkownika czasie.
-Używając kilku prostych parametrów, użytkownik może wygenerować zlecenie "Buy Limit" o wybranej przez siebie porze. Użytkownik ma możliwość złożenia zlecenia z poziomu terminala w python. Użytkownik musi wprowadzić wszystkie wymagane parametry przed włączeniem programu z wyjątkiem parametru api_passphrase (użytkownik zostanie zapytany o ten parametr w terminalu).
+Używając kilku prostych parametrów, użytkownik może wygenerować zlecenie "Buy Limit" o wybranej przez siebie porze. Zlecenie można złożyć z poziomu terminala w python. Użytkownik musi wprowadzić wszystkie wymagane parametry przed włączeniem programu z wyjątkiem parametru api_passphrase (użytkownik zostanie zapytany o ten parametr w terminalu).
 
 
 #### API KUCOIN
-    1. Wchodzimy na stronę https://www.kucoin.com/pl/account/sub i klikamy w 'Utwórz subkonto'
+    1. Wejdź na stronę https://www.kucoin.com/pl/account/sub i kliknij w 'Utwórz subkonto'
     2. Podaj nazwę subkonta, wybierz wszystkie uprawnienia, ustal hasło i zapisz.
     3. Kliknij przelew - przelej z konta master na subkonto - Konto transakcyjne USDT (ilość która Cie interesuje) i kliknij potwierdź
     4. W sekcji API kliknij 'Wyświetl'
@@ -89,18 +89,18 @@ Używając kilku prostych parametrów, użytkownik może wygenerować zlecenie "
     1. Pobierz i zainstaluj python ze strony: https://www.python.org/downloads/
     2. Podczas instalacji zaznacz 'Add python.exe to PATH'
 
-#### INSTALACJA NASZEGO BOTA (wszystkie komendy wpisujemy bez „”)
+#### INSTALACJA NASZEGO BOTA (wszystkie komendy wpisujemy bez "")
     1. Wyszukaj na komputerze wcześniej zainstalowany program Git Bash i uruchom go
-    2. W terminalu wpisz komende „cd Desktop” i enter
-    3. W terminalu wpisz komendę „git” i enter
-    4. Wpisz „git clone https://github.com/KBogielMiko/order_scheduler_kucoin.git” i enter
-    5. Wpisz „cd order_scheduler_kucoin” i enter
-    6. Wpisz „winpty python.exe -m pip install -r requirements.txt” i enter
-    7. Wpisz „winpty python.exe main.py”
+    2. W terminalu wpisz komende "cd Desktop" i enter
+    3. W terminalu wpisz komendę "git" i enter
+    4. Wpisz "git clone https://github.com/KBogielMiko/order_scheduler_kucoin.git" i enter
+    5. Wpisz "cd order_scheduler_kucoin" i enter
+    6. Wpisz "winpty python.exe -m pip install -r requirements.txt" i enter
+    7. Wpisz "winpty python.exe main.py"
     8. Nie wpisuj hasła, wyłącz program Git Bash
 
 #### KONFIGURACJA PROGRAMU
-    1. Otwieramy plik main.py z katalogu order_scheduler_kucoin (prawym i otwórz za pomocą Notatnik)
+    1. Otwórz plik main.py z katalogu order_scheduler_kucoin (prawym i otwórz za pomocą Notatnik)
     2. api_key = 'TUTAJ' Wpisz swój klucz API
     3. api_secret = 'TUTAJ' Wpisz swój secret API klucz
     4. Zapisz zmiany
@@ -113,8 +113,8 @@ Używając kilku prostych parametrów, użytkownik może wygenerować zlecenie "
     5. date = 'TUTAJ' wpisz dokładną datę i godzinę o której ma być złożona oferta w formacie 2023-01-06 20:03:00.500
     6. Zapisz zmiany
     7. Włącz Git Bash
-    8. W terminalu wpisz komendę „cd Desktop” i enter
-    9. Wpisz „cd order_scheduler_kucoin” i enter
-    10. Wpisz „winpty python.exe main.py” i enter
+    8. W terminalu wpisz komendę "cd Desktop" i enter
+    9. Wpisz "cd order_scheduler_kucoin" i enter
+    10. Wpisz "winpty python.exe main.py" i enter
     11. Podaj hasło do API i wciśnij enter (hasło nie będzie widoczne przy wpisywaniu, miej pewność, że wpisujesz je poprawnie)
     12. Czekamy do czasu z punktu 5 na zakończenie pracy programu
